@@ -97,3 +97,24 @@ summarize_taxa.py \
 cp summarize_taxa_2/*_L3.txt "test-data/summarize_taxa_2_L3.txt"
 cp summarize_taxa_2/*_L6.txt "test-data/summarize_taxa_2_L6.txt"
 rm -rf summarize_taxa_2
+
+# make_emperor
+make_emperor.py \
+    --input_coords 'test-data/core_diversity_analyses_unweighted_unifrac_pc.txt' \
+    -o make_emperor_1 \
+    --map_fp 'test-data/core_diversity_analyses_map.txt' \
+    --number_of_axes '10' \
+    --add_unique_columns \
+    --number_of_segments 8
+rm -rf make_emperor_1
+
+make_emperor.py \
+    --input_coords 'test-data/core_diversity_analyses_unweighted_unifrac_pc.txt' \
+    -o make_emperor_2 \
+    --map_fp 'test-data/core_diversity_analyses_map.txt' \
+    --number_of_axes '10' \
+    --add_unique_columns \
+    --number_of_segments 8 \
+    --taxa_fp 'test-data/summarize_taxa_2_L3.txt' \
+    --n_taxa_to_keep 10
+rm -rf make_emperor_2
