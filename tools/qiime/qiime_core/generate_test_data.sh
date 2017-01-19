@@ -190,11 +190,34 @@ md5 'beta_diversity_1/unweighted_unifrac_otu_table.txt'
 md5 'beta_diversity_1/weighted_unifrac_otu_table.txt'
 rm -rf beta_diversity_1
 
-beta_diversity.py \
-    --input_path 'test-data/beta_diversity/otu_table.biom' \
-    -o beta_diversity_2 \
-    --metrics 'abund_jaccard,binary_chisq,binary_chord,binary_euclidean,binary_hamming,binary_jaccard,binary_lennon,binary_ochiai,binary_pearson,binary_sorensen_dice,bray_curtis,canberra,chisq,chord,euclidean,gower,hellinger,kulczynski,manhattan,morisita_horn,pearson,soergel,spearman_approx,specprof,unifrac_g,unifrac_g_full_tree,unweighted_unifrac,unweighted_unifrac_full_tree,weighted_normalized_unifrac,weighted_unifrac' \
-    --tree_path 'test-data/beta_diversity/rep_set.tre'
-md5 'beta_diversity_2/canberra_otu_table.txt'
-md5 'beta_diversity_2/pearson_otu_table.txt'
-rm -rf beta_diversity_2
+summarize_taxa.py \
+    -i 'test-data/core_diversity_analyses_otu_table.biom' \
+    -o summarize_taxa_2 \
+    -L '3,6' \
+    --md_identifier "taxonomy" \
+    --delimiter ";"
+cp summarize_taxa_2/*_L3.txt "test-data/summarize_taxa_2_L3.txt"
+cp summarize_taxa_2/*_L6.txt "test-data/summarize_taxa_2_L6.txt"
+rm -rf summarize_taxa_2
+
+#alpha_rarefaction
+alpha_rarefaction.py \
+    --otu_table_fp "test-data/alpha_rarefaction/otu_table.biom" \
+    --mapping_fp "test-data/alpha_rarefaction/mapping_file.txt" \
+    -o alpha_rarefaction \
+    --num_steps '2' \
+    --tree_fp "test-data/alpha_rarefaction/rep_set.tre" \
+    --min_rare_depth '10' \
+    --max_rare_depth '50' \
+    --retain_intermediate_files
+cp alpha_rarefaction/alpha_rarefaction_plots/rarefaction_plots.html "test-data/alpha_rarefaction_rarefaction_plots.html"
+cp alpha_rarefaction/alpha_div_collated/chao1.txt "test-data/alpha_rarefaction_chao1.txt"
+cp alpha_rarefaction/alpha_div_collated/observed_otus.txt "test-data/alpha_rarefaction_observed_otus.txt"
+cp alpha_rarefaction/alpha_div_collated/PD_whole_tree.txt "test-data/alpha_rarefaction_PD_whole_tree.txt"
+md5 alpha_rarefaction/alpha_div/alpha_rarefaction_10_0.txt
+md5 alpha_rarefaction/alpha_div/alpha_rarefaction_30_6.txt
+md5 alpha_rarefaction/alpha_div/alpha_rarefaction_50_9.txt
+md5 alpha_rarefaction/rarefaction/rarefaction_10_0.biom
+md5 alpha_rarefaction/rarefaction/rarefaction_30_6.biom
+md5 alpha_rarefaction/rarefaction/rarefaction_50_9.biom
+rm -rf alpha_rarefaction
