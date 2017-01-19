@@ -200,24 +200,15 @@ cp summarize_taxa_2/*_L3.txt "test-data/summarize_taxa_2_L3.txt"
 cp summarize_taxa_2/*_L6.txt "test-data/summarize_taxa_2_L6.txt"
 rm -rf summarize_taxa_2
 
-#alpha_rarefaction
-alpha_rarefaction.py \
-    --otu_table_fp "test-data/alpha_rarefaction/otu_table.biom" \
-    --mapping_fp "test-data/alpha_rarefaction/mapping_file.txt" \
-    -o alpha_rarefaction \
-    --num_steps '2' \
-    --tree_fp "test-data/alpha_rarefaction/rep_set.tre" \
-    --min_rare_depth '10' \
-    --max_rare_depth '50' \
-    --retain_intermediate_files
-cp alpha_rarefaction/alpha_rarefaction_plots/rarefaction_plots.html "test-data/alpha_rarefaction_rarefaction_plots.html"
-cp alpha_rarefaction/alpha_div_collated/chao1.txt "test-data/alpha_rarefaction_chao1.txt"
-cp alpha_rarefaction/alpha_div_collated/observed_otus.txt "test-data/alpha_rarefaction_observed_otus.txt"
-cp alpha_rarefaction/alpha_div_collated/PD_whole_tree.txt "test-data/alpha_rarefaction_PD_whole_tree.txt"
-md5 alpha_rarefaction/alpha_div/alpha_rarefaction_10_0.txt
-md5 alpha_rarefaction/alpha_div/alpha_rarefaction_30_6.txt
-md5 alpha_rarefaction/alpha_div/alpha_rarefaction_50_9.txt
-md5 alpha_rarefaction/rarefaction/rarefaction_10_0.biom
-md5 alpha_rarefaction/rarefaction/rarefaction_30_6.biom
-md5 alpha_rarefaction/rarefaction/rarefaction_50_9.biom
-rm -rf alpha_rarefaction
+#beta_diversity_through_plots
+beta_diversity_through_plots.py \
+    --otu_table_fp 'test-data/beta_diversity_through_plots/otu_table.biom' \
+    --mapping_fp 'test-data/beta_diversity_through_plots/map.txt' \
+    --output_dir beta_diversity_through_plots \
+    --tree_fp 'test-data/beta_diversity_through_plots/rep_set.tre' \
+    --parallel
+cp beta_diversity_through_plots/unweighted_unifrac_dm.txt 'test-data/beta_diversity_through_plots/'
+cp beta_diversity_through_plots/unweighted_unifrac_pc.txt 'test-data/beta_diversity_through_plots/'
+cp beta_diversity_through_plots/weighted_unifrac_dm.txt 'test-data/beta_diversity_through_plots/'
+cp beta_diversity_through_plots/weighted_unifrac_pc.txt 'test-data/beta_diversity_through_plots/'
+rm -rf beta_diversity_through_plots
