@@ -183,3 +183,22 @@ make_emperor.py \
     --taxa_fp 'test-data/summarize_taxa_2_L3.txt' \
     --n_taxa_to_keep 10
 rm -rf make_emperor_2
+
+#beta_diversity
+beta_diversity.py \
+    --input_path 'test-data/beta_diversity/otu_table.biom' \
+    -o beta_diversity_1 \
+    --metrics 'unweighted_unifrac,weighted_unifrac' \
+    --tree_path 'test-data/beta_diversity/rep_set.tre'
+md5 'beta_diversity_1/unweighted_unifrac_otu_table.txt'
+md5 'beta_diversity_1/weighted_unifrac_otu_table.txt'
+rm -rf beta_diversity_1
+
+beta_diversity.py \
+    --input_path 'test-data/beta_diversity/otu_table.biom' \
+    -o beta_diversity_2 \
+    --metrics 'abund_jaccard,binary_chisq,binary_chord,binary_euclidean,binary_hamming,binary_jaccard,binary_lennon,binary_ochiai,binary_pearson,binary_sorensen_dice,bray_curtis,canberra,chisq,chord,euclidean,gower,hellinger,kulczynski,manhattan,morisita_horn,pearson,soergel,spearman_approx,specprof,unifrac_g,unifrac_g_full_tree,unweighted_unifrac,unweighted_unifrac_full_tree,weighted_normalized_unifrac,weighted_unifrac' \
+    --tree_path 'test-data/beta_diversity/rep_set.tre'
+md5 'beta_diversity_2/canberra_otu_table.txt'
+md5 'beta_diversity_2/pearson_otu_table.txt'
+rm -rf beta_diversity_2
