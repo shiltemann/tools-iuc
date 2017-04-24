@@ -753,6 +753,7 @@ pick_otus.py \
     -o 'pick_otus_blast' \
     --otu_picking_method "blast" \
     --refseqs_fp "test-data/pick_otus/refseqs.fasta" \
+    --similarity "0.97" \
     --max_e_value_blast "1e-10" \
     --min_aligned_percent "0.5" \
     --non_chimeras_retention "union"
@@ -791,7 +792,7 @@ pick_otus.py \
 
 pick_otus.py \
     -i 'test-data/pick_otus/seqs.fna' \
-    -o 'pick_otus_uclust' \
+    -o 'pick_otus_uclust_intersection' \
     --otu_picking_method "uclust" \
     --similarity "0.97" \
     --denovo_otu_id_prefix "denovo" \
@@ -799,4 +800,4 @@ pick_otus.py \
     --max_rejects "8" \
     --stepwords "8" \
     --word_length "8" \
-    --non_chimeras_retention "union"
+    --non_chimeras_retention "intersection"
