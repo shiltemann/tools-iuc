@@ -29,7 +29,7 @@
             #elif $alignment.alignment_method == 'infernal'
                 --template_fp '$alignment.template_fp'
             #end if
-            
+
             #if $min_length:
                 --min_length '$min_length'
             #end if
@@ -57,10 +57,10 @@
                 </param>
                 <param argument="--template_fp" type="data" format="fasta" optional="True" label="Fasta file for template alignment"/>
             </when>
-            <when value="infernal">
-                <param argument="--template_fp" type="data" format="stockholm" label="Stockholm file with a corresponding secondary structure annotation"/>
-            </when>
-            <when value="clustalw"/>
+            <!--<when value="infernal">
+                <param argument="- -template_fp" type="data" format="stockholm" label="Stockholm file with a corresponding secondary structure annotation"/>
+            </when>-->
+            <!--<when value="clustalw"/>-->
             <when value="muscle"/>
             <when value="mafft"/>
         </conditional>

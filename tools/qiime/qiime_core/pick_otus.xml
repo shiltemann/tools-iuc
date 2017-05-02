@@ -134,13 +134,13 @@
                 <expand macro="pick_otus_similarity"/>
                 <expand macro="pick_otus_suppress_prefilter_exact_match"/>
             </when>
-            <when value="mothur">
-                <param argument="--clustering_algorithm" type="select" label="Clustering algorithm">
+            <!--<when value="mothur">
+                <param argument="- -clustering_algorithm" type="select" label="Clustering algorithm">
                     <option value="furthest" selected="true">furthest</option>
                     <option value="nearest">nearest</option>
                     <option value="average">average</option>
                 </param>
-            </when>
+            </when>-->
             <when value="trie">
                 <param argument="--trie_reverse_seqs" type="boolean" truevalue="--trie_reverse_seqs" falsevalue="" checked="false" label="Reverse seqs before picking OTUs for suffix (rather than prefix) collapsing?"/>
             </when>
@@ -154,19 +154,19 @@
                 <expand macro="pick_otus_stepwords"/>
                 <expand macro="pick_otus_word_length"/>
             </when>
-            <when value="blast">
+            <!--<when value="blast">
                 <expand macro="pick_otus_reference_source"/>
                 <expand macro="pick_otus_similarity"/>
-                <param argument="--max_e_value_blast" type="float" value="1e-10" label="Max E-value when clustering"/>
-                <param argument="--min_aligned_percent" type="float" value="0.5" min="0" max="1" label="Minimum percent of query sequence that can be aligned to consider a hit"/>
+                <param argument="- -max_e_value_blast" type="float" value="1e-10" label="Max E-value when clustering"/>
+                <param argument="- -min_aligned_percent" type="float" value="0.5" min="0" max="1" label="Minimum percent of query sequence that can be aligned to consider a hit"/>
             </when>
             <when value="sumaclust">
                 <expand macro="pick_otus_similarity"/>
-                <param argument="--sumaclust_exact" type="boolean" truevalue="--sumaclust_exact" falsevalue="" checked="false" label="Assign a sequence to the best matching seed rather than the first matching seed passing the similarity threshold?"/>
-                <param argument="--sumaclust_l" type="boolean" truevalue="--sumaclust_l" falsevalue="" checked="true" label="Reference sequence length if the shortest?"/>
+                <param argument="- -sumaclust_exact" type="boolean" truevalue="- -sumaclust_exact" falsevalue="" checked="false" label="Assign a sequence to the best matching seed rather than the first matching seed passing the similarity threshold?"/>
+                <param argument="- -sumaclust_l" type="boolean" truevalue="- -sumaclust_l" falsevalue="" checked="true" label="Reference sequence length if the shortest?"/>
                 <expand macro="pick_otus_denovo_otu_id_prefix"/>
                 <expand macro="pick_otus_suppress_prefilter_exact_match"/>
-            </when>
+            </when>-->
             <when value="swarm">
                 <expand macro="pick_otus_denovo_otu_id_prefix"/>
                 <param argument="--swarm_resolution" type="integer" value="1" label="Maximum number of differences allowed between two amplicons" help="Two amplicons will be grouped if they have integer (or less) differences"/>
@@ -175,9 +175,9 @@
                 <param argument="--prefix_length" type="integer" value="50" label="Prefix length"/>
                 <param argument="--suffix_length" type="integer" value="50" label="Suffix length"/>
             </when>
-            <when value="cdhit">
+            <!--<when value="cdhit">
                 <expand macro="pick_otus_similarity"/>
-            </when>
+            </when>-->
             <when value="uclust">
                 <expand macro="pick_otus_similarity"/>
                 <expand macro="pick_otus_denovo_otu_id_prefix"/>
@@ -186,7 +186,7 @@
                 <param argument="--optimal_uclust" type="boolean" truevalue="--optimal_uclust" falsevalue="" checked="false" label="Pass the –optimal flag to uclust?"/>
                 <param argument="--exact_uclust" type="boolean" truevalue="--exact_uclust" falsevalue="" checked="false" label="Pass the –exact flag to uclust?"/>
                 <param argument="--user_sort" type="boolean" truevalue="--user_sort" falsevalue="" checked="false" label="Pass the -user_sort flag to uclust?"/>
-                <expand macro="pick_otus_max"/>                
+                <expand macro="pick_otus_max"/>
                 <expand macro="pick_otus_stepwords"/>
                 <expand macro="pick_otus_word_length"/>
                 <param argument="--suppress_uclust_stable_sort" type="boolean" truevalue="--suppress_uclust_stable_sort" falsevalue="" checked="false" label="Don't pass –stable-sort to uclust?"/>
@@ -336,7 +336,7 @@
             <param name="exact_uclust" value=""/>
             <param name="user_sort" value=""/>
             <param name="max_accepts" value="1"/>
-            <param name="max_rejects" value="8"/>               
+            <param name="max_rejects" value="8"/>
             <param name="stepwords" value="8"/>
             <param name="word_length" value="8"/>
             <param name="suppress_uclust_stable_sort" value=""/>
