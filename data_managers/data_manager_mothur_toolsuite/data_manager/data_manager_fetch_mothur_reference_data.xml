@@ -36,8 +36,8 @@
         <option value="silva_release_123">SILVA reference files (release 123)</option>
 	    <option value="silva_release_119">SILVA reference files (release 119)</option>
 	    <option value="silva_release_102">SILVA reference files (release 102)</option>
-	    <option value="greengenes_August2013">Greengenes reference taxonomy and alignment (August 2013)</option>
-	    <option value="greengenes_May2013">Greengenes reference taxonomy and alignment (May 2013)</option>
+	    <option value="greengenes_August2013">Greengenes reference taxonomy and alignment v13.8 (August 2013)</option>
+	    <option value="greengenes_May2013">Greengenes reference taxonomy and alignment v13.5 (May 2013)</option>
 	    <option value="greengenes_old">Greengenes reference taxonomy and alignment (pre-May 2013)</option>
 	    <option value="greengenes_gold_alignment">Greengenes gold alignment</option>
 	    <option value="secondary_structure_maps_silva">SILVA secondary structure maps</option>
