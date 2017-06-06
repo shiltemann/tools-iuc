@@ -62,6 +62,16 @@ MOTHUR_REFERENCE_DATA = {
     },
     # Silva reference files
     # http://www.mothur.org/wiki/Silva_reference_files
+    "silva_release_128": {
+        "SILVA release 128":
+        ["https://mothur.org/w/images/b/b4/Silva.nr_v128.tgz",
+         "https://mothur.org/w/images/a/a4/Silva.seed_v128.tgz", ],
+    },
+    "silva_release_123": {
+        "SILVA release 123":
+        ["https://mothur.org/w/images/b/be/Silva.nr_v123.tgz",
+         "https://mothur.org/w/images/1/15/Silva.seed_v123.tgz", ],
+    },
     "silva_release_119": {
         "SILVA release 119":
         ["http://www.mothur.org/w/images/2/27/Silva.nr_v119.tgz",
