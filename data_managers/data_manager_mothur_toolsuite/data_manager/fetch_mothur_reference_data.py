@@ -36,6 +36,18 @@ MOTHUR_REFERENCE_DATA = {
     },
     # RDP reference files
     # http://www.mothur.org/wiki/RDP_reference_files
+    "RDP_v16": {
+        "16S rRNA RDP training set 16":
+        ["https://mothur.org/w/images/d/dc/Trainset16_022016.rdp.tgz", ],
+        "16S rRNA PDS training set 16":
+        ["https://mothur.org/w/images/c/c3/Trainset16_022016.pds.tgz", ],
+    },
+    "RDP_v14": {
+        "16S rRNA RDP training set 14":
+        ["https://mothur.org/w/images/6/6c/Trainset14_032015.rdp.tgz", ],
+        "16S rRNA PDS training set 14":
+        ["https://mothur.org/w/images/8/88/Trainset14_032015.pds.tgz", ],
+    },
     "RDP_v10": {
         "16S rRNA RDP training set 10":
         ["http://www.mothur.org/w/images/b/b5/Trainset10_082014.rdp.tgz", ],
