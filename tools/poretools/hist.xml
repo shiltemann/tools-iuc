@@ -6,6 +6,9 @@
     <expand macro="requirements" />
     <expand macro="version_command" />
     <command detect_errors="aggressive"><![CDATA[
+## set matplotlib backend
+export MPLBACKEND="Agg" &&
+
 mkdir fast5files &&
 
 #for $f in $fast5in
