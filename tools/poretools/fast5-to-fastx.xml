@@ -37,14 +37,7 @@ $advanced.normal_quality
             <option value="fasta">Fasta</option>
         </param>
         <section name="advanced" title="Advanced settings">
-            <param argument="--type" type="select" multiple="false" label="Which type of FASTQ entries should be reported?">
-                <option value="all" selected="true">all</option>
-                <option value="fwd">fwd</option>
-                <option value="rev">rev</option>
-                <option value="2D">2D</option>
-                <option value="fwd,rev">fwd,rev</option>
-                <option value="best">best</option>
-            </param>
+            <expand macro="type_param" />
             <param argument="--min_length" type="integer" optional="true" value="" min="0" label="Minimum read length for FASTA entry to be reported"/>
             <param argument="--max_length" type="integer" optional="true" value="" min="0" label="Minimum read length for FASTA entry to be reported"/>
             <param argument="--high_quality" type="boolean" truevalue="--high-quality" falsevalue="" checked="false"

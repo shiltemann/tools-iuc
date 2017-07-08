@@ -12,6 +12,17 @@
         <version_command>poretools -v</version_command>
     </xml>
 
+    <xml name="type_param">
+        <param argument="--type" type="select" multiple="false" label="Which type of FASTQ entries should be reported?">
+            <option value="all" selected="true">all</option>
+            <option value="fwd">fwd</option>
+            <option value="rev">rev</option>
+            <option value="2D">2D</option>
+            <option value="fwd,rev">fwd,rev</option>
+            <option value="best">best</option>
+        </param>
+    </xml>
+    
     <xml name="citations">
         <citations>
             <citation type="doi">10.1093/bioinformatics/btu555</citation>
