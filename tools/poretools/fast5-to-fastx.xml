@@ -65,25 +65,25 @@ $advanced.normal_quality
     </outputs>
     <tests>
         <test><!-- test conversion to fastq -->
-            <param name="fast5in" value="test.fast5"/>
+            <param name="fast5in" value="test2.fast5"/>
             <output name="fastx_out" file="test.fastq" ftype="fastq" lines_diff="6"/>
         </test>
         <test><!-- test conversion to fasta -->
-            <param name="fast5in" value="test.fast5"/>
+            <param name="fast5in" value="test2.fast5"/>
             <param name="output_format" value="fasta"/>
             <output name="fastx_out" file="test.fasta" ftype="fasta"/>
         </test>
         <test><!-- test with additional parameters -->
-            <param name="fast5in" value="test.fast5"/>
+            <param name="fast5in" value="test2.fast5"/>
             <param name="min_length" value="230"/>
             <param name="normal_quality" value="--normal-quality"/>
-            <output name="fastx_out" md5="a2ca3da849d1dfa42831c4424f2fbc19" ftype="fastq"/>
+            <output name="fastx_out" md5="13752d116117fe069180e687175a5e0b" ftype="fastq"/>
         </test>
         <test><!-- test with timestamp param and empty group param -->
-            <param name="fast5in" value="test.fast5"/>
-            <param name="start" value="1487197016"/>
+            <param name="fast5in" value="test2.fast5"/>
+            <param name="start" value="1457148908"/>
             <param name="group" value=""/>
-            <output name="fastx_out" md5="d41d8cd98f00b204e9800998ecf8427e" ftype="fastq"/>
+            <output name="fastx_out" md5="13752d116117fe069180e687175a5e0b" ftype="fastq"/>
         </test>
     </tests>
     <help><![CDATA[
