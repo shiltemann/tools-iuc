@@ -1,0 +1,29 @@
+files	total reads	2
+files	total base-called reads	2
+complement	total reads	2
+complement	total base pairs	1066
+complement	mean	533.00
+complement	median	533
+complement	min	464
+complement	max	602
+complement	N25	602
+complement	N50	602
+complement	N75	464
+template	total reads	2
+template	total base pairs	1151
+template	mean	575.50
+template	median	575
+template	min	494
+template	max	657
+template	N25	657
+template	N50	657
+template	N75	494
+twodirections	total reads	2
+twodirections	total base pairs	1215
+twodirections	mean	607.50
+twodirections	median	607
+twodirections	min	523
+twodirections	max	692
+twodirections	N25	692
+twodirections	N50	692
+twodirections	N75	523
