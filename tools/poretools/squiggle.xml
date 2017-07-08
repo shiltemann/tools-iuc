@@ -6,7 +6,7 @@
     <expand macro="requirements" />
     <expand macro="version_command" />
     <command detect_errors="aggressive"><![CDATA[
-# set matplotlib backend
+## set matplotlib backend
 export MPLBACKEND="Agg" &&
 
 ln -s '$fast5in' input.fast5 &&
