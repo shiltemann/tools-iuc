@@ -1,4 +1,4 @@
-<tool id="poretools_fastx" name="fast5-to-fastX" version="@TOOL_VERSION@-g0.3">
+<tool id="poretools_fastx" name="fast5-to-fastX" version="@TOOL_VERSION@.0">
     <description>convert fast5 to fasta/fastq</description>
     <macros>
         <import>macros.xml</import>
@@ -31,7 +31,7 @@ $advanced.normal_quality
 > '$fastx_out'
     ]]></command>
     <inputs>
-        <param name="fast5in" type="data" format="h5" label="Fast5 files" />
+        <param name="fast5in" type="data" format="h5" label="Fast5 file" />
         <param name="output_format" type="select" label="Select output format" >
             <option value="fastq">Fastq</option>
             <option value="fasta">Fasta</option>
