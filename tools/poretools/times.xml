@@ -1,5 +1,5 @@
 <tool id="poretools_times" name="times" version="@TOOL_VERSION@.0">
-    <description></description>
+    <description>create collector's curve</description>
     <macros>
         <import>macros.xml</import>
     </macros>
@@ -12,10 +12,10 @@ mkdir fast5files &&
     ln -s '$f' 'fast5files/${f.name}' &&
 #end for
 
-poretools times fast5files > '$times_out'
+poretools times fast5files > '$plot_out'
     ]]></command>
     <inputs>
-        <param name="fast5in" type="data" format="h5" multiple="true" label="Fast5 file" />
+        <param name="fast5in" type="data" format="h5" multiple="true" label="Fast5 files" />
     </inputs>
     <outputs>
         <data name="times_out" format="tabular" label="${tool.name} on ${on_string}: times"/>
@@ -33,9 +33,10 @@ poretools times fast5files > '$times_out'
 
 List information about fast5 files
 
-For more information about this command, see command_doc_
+Create a collector’s curve reflecting the sequencing yield over time for a set of reads. There are two types of plots.
+ The first is the yield of reads over time:, see command_doc_
 
-.. _command_doc: http://poretools.readthedocs.io/en/latest/content/examples.html#poretools-times
+.. _command_doc: http://poretools.readthedocs.io/en/latest/content/examples.html#poretools-yield-plot
 
     ]]></help>
     <expand macro="citations"/>
