@@ -33,8 +33,9 @@ poretools times fast5files > '$plot_out'
 
 List information about fast5 files
 
-Create a collector’s curve reflecting the sequencing yield over time for a set of reads. There are two types of plots.
- The first is the yield of reads over time:, see command_doc_
+Create a collector’s curve reflecting the sequencing yield over time for a set of reads.
+
+For more information about this command, see command_doc_
 
 .. _command_doc: http://poretools.readthedocs.io/en/latest/content/examples.html#poretools-yield-plot
 

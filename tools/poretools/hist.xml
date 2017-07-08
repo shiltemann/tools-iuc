@@ -54,7 +54,7 @@ fast5files/
 
 **Command Documentation**
 
-lot read size histogram for a set of FAST5 files
+Plot read size histogram for a set of FAST5 files.
 
 For more information about this command, see command_doc_
 

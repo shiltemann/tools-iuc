@@ -45,7 +45,7 @@ fast5files/
 
 Collect read size statistics from a set of FAST5 files.
 
-For more information about this command, see command_doc_ and command_doc2_
+For more information about this command, see command_doc_
 
 .. _command_doc: http://poretools.readthedocs.io/en/latest/content/examples.html#poretools-stats
     ]]></help>
