@@ -12,7 +12,7 @@ mkdir fast5files &&
     ln -s '$f' 'fast5files/${f.name}' &&
 #end for
 
-poretools times fast5files > '$plot_out'
+poretools times fast5files > '$times_out'
     ]]></command>
     <inputs>
         <param name="fast5in" type="data" format="h5" multiple="true" label="Fast5 files" />
