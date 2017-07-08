@@ -1,0 +1,45 @@
+<tool id="poretools_winner" name="winner" version="@TOOL_VERSION@.0">
+    <description>report the longest read</description>
+    <macros>
+        <import>macros.xml</import>
+    </macros>
+    <expand macro="requirements" />
+    <expand macro="version_command" />
+    <command detect_errors="aggressive"><![CDATA[
+mkdir fast5files &&
+
+#for $f in $fast5in
+    ln -s '$f' 'fast5files/${f.name}' &&
+#end for
+
+poretools winner
+--type $type
+fast5files/
+> '$winner'
+    ]]></command>
+    <inputs>
+        <param name="fast5in" type="data" format="h5" multiple="true" label="Fast5 files" />
+        <expand macro="type_param" />
+    </inputs>
+    <outputs>
+        <data name="winner" format="txt" label="${tool.name} on ${on_string}: winner" />
+    </outputs>
+    <tests>
+        <test>
+            <param name="fast5in" value="test.fast5,test2.fast5"/>
+            <output name="winner" file="winner.txt" ftype="txt" />
+        </test>
+    </tests>
+    <help><![CDATA[
+@HELP_GENERAL@
+
+**Command Documentation**
+
+Report the longest read among a set of FAST5 files.
+
+For more information about this command, see command_doc_ and command_doc2_
+
+.. _command_doc: http://poretools.readthedocs.io/en/latest/content/examples.html#poretools-winner
+    ]]></help>
+    <expand macro="citations"/>
+</tool>
