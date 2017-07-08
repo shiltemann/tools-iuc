@@ -1,5 +1,5 @@
 <tool id="poretools_fastx" name="fast5-to-fastX" version="@TOOL_VERSION@-g0.3">
-    <description>Convert fast5 format to fastq or fasta</description>
+    <description>convert fast5 to fasta/fastq</description>
     <macros>
         <import>macros.xml</import>
     </macros>
@@ -8,9 +8,9 @@
     <command detect_errors="aggressive"><![CDATA[
 ln -s '$fast5in' '${fast5in.name}' &&
 
-poretools
-$output_format
+poretools $output_format
 '${fast5in.name}'
+--type $advanced.type
 #if $advanced.min_length
     --min-length $advanced.min_length
 #end if
@@ -31,12 +31,20 @@ $advanced.normal_quality
 > '$fastx_out'
     ]]></command>
     <inputs>
-        <param name="fast5in" type="data" format="h5" label="Fast5 file" />
-        <param name="output_format" type="select" label="Select output format" help="">
+        <param name="fast5in" type="data" format="h5" multiple="true" label="Fast5 file" />
+        <param name="output_format" type="select" label="Select output format" >
             <option value="fastq">Fastq</option>
             <option value="fasta">Fasta</option>
         </param>
         <section name="advanced" title="Advanced settings">
+            <param argument="--type" type="select" multiple="false" label="Which type of FASTQ entries should be reported?">
+                <option value="all" selected="true">all</option>
+                <option value="fwd">fwd</option>
+                <option value="rev">rev</option>
+                <option value="2D">2D</option>
+                <option value="fwd,rev">fwd,rev</option>
+                <option value="best">best</option>
+            </param>
             <param argument="--min_length" type="integer" optional="true" value="" min="0" label="Minimum read length for FASTA entry to be reported"/>
             <param argument="--max_length" type="integer" optional="true" value="" min="0" label="Minimum read length for FASTA entry to be reported"/>
             <param argument="--high_quality" type="boolean" truevalue="--high-quality" falsevalue="" checked="false"
@@ -70,7 +78,7 @@ $advanced.normal_quality
             <param name="min_length" value="230"/>
             <param name="normal_quality" value="--normal-quality"/>
             <output name="fastx_out" md5="a2ca3da849d1dfa42831c4424f2fbc19" ftype="fastq"/>
-        </test>        
+        </test>
         <test><!-- test with timestamp param and empty group param -->
             <param name="fast5in" value="test.fast5"/>
             <param name="start" value="1487197016"/>
@@ -78,8 +86,17 @@ $advanced.normal_quality
             <output name="fastx_out" md5="d41d8cd98f00b204e9800998ecf8427e" ftype="fastq"/>
         </test>
     </tests>
-    <help><![CDATA[
-Converts Fast5 format to Fastq using poretools.
-    ]]></help>
+    <help>
+@HELP_GENERAL@
+
+**Command Documentation**
+
+Extract sequences in FASTQ/FASTA format from a set of FAST5 files.
+
+For more information about this command, see command_doc_ and command_doc2_
+
+.. _command_doc: http://poretools.readthedocs.io/en/latest/content/examples.html#poretools-fastq
+.. _command_doc2: http://poretools.readthedocs.io/en/latest/content/examples.html#poretools-fastq2
+</help>
     <expand macro="citations"/>
 </tool>
