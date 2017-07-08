@@ -16,11 +16,8 @@ input.fast5
     ]]></command>
     <inputs>
         <param name="fast5in" type="data" format="h5" label="Fast5 file" />
-        <param name="output_format" type="select" label="Output type" >
-            <option value="png" selected="true">png</option>
-            <option value="pdf">pdf</option>
-        </param>
-        <param name="theme_bw" argument="--theme-bw" type="boolean" truevalue="--theme-bw" falsevalue="" label="Use a black and white theme?" />
+        <expand macro="output_format_param" />
+        <expand macro="theme_bw_param" />
         <param name="num_facets" argument="--num-facets" type="integer" value="6" min="0" label="The number of plot facets (sub-plots). More is better for long reads." />
     </inputs>
     <outputs>

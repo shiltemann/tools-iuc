@@ -22,6 +22,17 @@
             <option value="best">best</option>
         </param>
     </xml>
+
+    <xml name="theme_bw_param">
+        <param name="theme_bw" argument="--theme-bw" type="boolean" truevalue="--theme-bw" falsevalue="" label="Use a black and white theme?" />
+    </xml>
+
+    <xml name="output_format_param">
+        <param name="output_format" type="select" label="Output type" >
+            <option value="png" selected="true">png</option>
+            <option value="pdf">pdf</option>
+        </param>
+    </xml>
     
     <xml name="citations">
         <citations>

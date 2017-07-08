@@ -27,11 +27,8 @@ fast5files/
             <option value="reads" selected="true">reads</option>
             <option value="basepairs">basepairs</option>
         </param>
-        <param name="output_format" type="select" label="Output type" >
-            <option value="png" selected="true">png</option>
-            <option value="pdf">pdf</option>
-        </param>
-        <param name="theme_bw" argument="--theme-bw" type="boolean" truevalue="--theme-bw" falsevalue="" label="Use a black and white theme?" />
+        <expand macro="output_format_param" />
+        <expand macro="theme_bw_param" />
         <param argument="--savedf" type="boolean" truevalue="--savedf" falsevalue="" label="Save the data frame used to construct plot" />
     </inputs>
     <outputs>
