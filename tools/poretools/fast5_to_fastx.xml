@@ -86,7 +86,7 @@ $advanced.normal_quality
             <output name="fastx_out" md5="d41d8cd98f00b204e9800998ecf8427e" ftype="fastq"/>
         </test>
     </tests>
-    <help>
+    <help><![CDATA[
 @HELP_GENERAL@
 
 **Command Documentation**
@@ -97,6 +97,6 @@ For more information about this command, see command_doc_ and command_doc2_
 
 .. _command_doc: http://poretools.readthedocs.io/en/latest/content/examples.html#poretools-fastq
 .. _command_doc2: http://poretools.readthedocs.io/en/latest/content/examples.html#poretools-fastq2
-</help>
+    ]]></help>
     <expand macro="citations"/>
 </tool>
