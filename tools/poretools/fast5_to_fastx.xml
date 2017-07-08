@@ -31,7 +31,7 @@ $advanced.normal_quality
 > '$fastx_out'
     ]]></command>
     <inputs>
-        <param name="fast5in" type="data" format="h5" multiple="true" label="Fast5 file" />
+        <param name="fast5in" type="data" format="h5" label="Fast5 files" />
         <param name="output_format" type="select" label="Select output format" >
             <option value="fastq">Fastq</option>
             <option value="fasta">Fasta</option>
