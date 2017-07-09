@@ -57,7 +57,7 @@ fast5files/
             <param name="theme_bw" value="--theme-bw" />
             <param name="savedf" value="--savedf" />
             <output name="plot_out_pdf" file="plot.pdf" ftype="pdf" compare="sim_size" />
-            <output name="dataframe" file="frame.txt" ftype="txt" />
+            <output name="dataframe" file="data_frame.txt" ftype="txt" />
         </test>
     </tests>
     <help><![CDATA[
