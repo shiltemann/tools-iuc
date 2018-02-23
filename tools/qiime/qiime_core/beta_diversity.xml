@@ -23,7 +23,7 @@ beta_diversity.py
     $full_tree
     ]]></command>
     <inputs>
-        <param argument="--input_path" type="data" format="tabular,txt,tsv" label="OTU table"/>
+        <param argument="--input_path" type="data" format="tabular,txt,tsv,biom1,biom2" label="OTU table"/>
         <param argument="--rows" type="text" value="" optional="true" label="Rows on which distance matrix is computed (optional)" help="A comma-separated list of sample names is expected"/>
         <param argument="--metrics" type="select" multiple="True" display="checkboxes" label="Beta-diversity metric(s) to use">
             <option value="abund_jaccard">Abundance weighted Jaccard distance</option>
@@ -79,7 +79,7 @@ beta_diversity.py
         <test>
             <param name="input_path" value="beta_diversity/otu_table.biom"/>
             <param name="tree_path" value="beta_diversity/rep_set.tre"/>
-            <param name="metrics" value="abund_jaccard,binary_chisq,binary_chord,binary_euclidean,binary_hamming,binary_jaccard,binary_lennon,binary_ochiai,binary_pearson,binary_sorensen_dice,bray_curtis,canberra,chisq,chord,euclidean,gower,hellinger,kulczynski,manhattan,morisita_horn,pearson,soergel,spearman_approx,specprof,unifrac_g,unifrac_g_full_tree,unweighted_unifrac,unweighted_unifrac_full_tree,weighted_normalized_unifrac,weighted_unifrac"/>            
+            <param name="metrics" value="abund_jaccard,binary_chisq,binary_chord,binary_euclidean,binary_hamming,binary_jaccard,binary_lennon,binary_ochiai,binary_pearson,binary_sorensen_dice,bray_curtis,canberra,chisq,chord,euclidean,gower,hellinger,kulczynski,manhattan,morisita_horn,pearson,soergel,spearman_approx,specprof,unifrac_g,unifrac_g_full_tree,unweighted_unifrac,unweighted_unifrac_full_tree,weighted_normalized_unifrac,weighted_unifrac"/>
             <param name="full_tree" value=""/>
             <output_collection name="beta_diversity" count="30">
                 <element name="canberra" md5="79d919bef870d6e43a49ee3da9c6e2f9"/>

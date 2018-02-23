@@ -24,7 +24,7 @@
             --output_mapping_fp '$output_mapping_fp'
     ]]></command>
     <inputs>
-        <param argument="--input_biom_fp" type="data" format="biom1" label="Input biom table" help="The biom table containing the samples to be collapsed" />
+        <param argument="--input_biom_fp" type="data" format="biom1,biom2" label="Input biom table" help="The biom table containing the samples to be collapsed" />
         <param argument="--mapping_fp" type="data" format="tabular" label="Input mapping file" help="The sample metadata mapping file" />
         <param argument="--collapse_mode" type="select" label="Collapse mode to use" help="The mechanism for collapsing counts within groups">
             <option value="sum" selected="true">sum</option>
