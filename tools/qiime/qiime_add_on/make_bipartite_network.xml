@@ -1,0 +1,83 @@
+<tool id="qiime_make_bipartite_network" name="Make bipartite network" version="@WRAPPER_VERSION@.0">
+    <description>for visualization with cytoscape</description>
+    <macros>
+        <import>macros.xml</import>
+    </macros>
+    <expand macro="requirements"/>
+    <version_command>make_bipartite_network.py --version</version_command>
+    <command detect_errors="aggressive"><![CDATA[
+make_bipartite_network.py
+--biom_fp '$biom_fp'
+--map_fp '$map_fp'
+--output_dir outfiles
+--observation_md_header_key '$observation_md_header_key'
+--md_fields '$md_fields'
+--scolors '$advanced.scolors'
+--sshape '$advanced.sshapes'
+--ssize '$advanced.ssizes'
+--ocolors '$advanced.ocolors'
+--oshape '$advanced.oshapes'
+--osize '$advanced.osizes'
+    ]]></command>
+    <inputs>
+        <param argument="--biom_fp" type="data" format="biom1,biom2" label="BIOM table"/>
+        <param argument="--map_fp" type="data" format="tabular" label="Mapping file"/>
+        <param argument="--observation_md_header_key" type="text" value="taxonomy" label="Key to retrieve metadata from the biom file" help="usually taxonomy" />
+        <param argument="--md_fields" type="text" value="" label="Metadata fields that will be the headers of the OTUNodeTable"
+            help="comma-separated list of fields e.g. kingdom,phylum,class. If the biom table has metadata dictionaries, md_fields will be the keys extracted from the biom table metadata">
+            <validator type="empty_field" />
+        </param>
+        <section name="advanced" title="Advanced Settings">
+            <param argument="--scolors" type="text" value="NodeType" label="Fields of interest for sample node coloring" help="comma-separated list" />
+            <param argument="--sshapes" type="text" value="NodeType" label="Fields of interest for sample node shape" help="comma-separated list" />
+            <param argument="--ssizes" type="text" value="NodeType" label="Fields of interest for sample node size" help="comma-separated list" />
+            <param argument="--ocolors" type="text" value="NodeType" label="Fields of interest for observation node coloring" help="comma-separated list" />
+            <param argument="--oshapes" type="text" value="NodeType" label="Fields of interest for observation node shape" help="comma-separated list" />
+            <param argument="--osizes" type="text" value="NodeType" label="Fields of interest for observation node size" help="comma-separated list" />
+        </section>
+    </inputs>
+    <outputs>
+        <data name="edge_table" format="tabular" from_work_dir="outfiles/EdgeTable.txt" label="${tool.name} on ${on_string}: EdgeTable"/>
+        <data name="otu_node_table" format="tabular" from_work_dir="outfiles/OTUNodeTable.txt" label="${tool.name} on ${on_string}: OTUNodeTable"/>
+        <data name="sample_node_table" format="tabular" from_work_dir="outfiles/SampleNodeTable.txt" label="${tool.name} on ${on_string}: SampleNodeTable"/>
+        <data name="node_attr_table" format="tabular" from_work_dir="outfiles/NodeAttrTable.txt" label="${tool.name} on ${on_string}: NodeAttrTable"/>
+    </outputs>
+    <tests>
+        <test>
+            <param name="biom_fp" value="make_bipartite_network/otu_table.biom" />
+            <param name="map_fp" value="make_bipartite_network/mapping_file.txt" />
+            <param name="md_fields" value="kingdom,phylum,class" />
+            <output name="edge_table" file="make_bipartite_network/outfiles/EdgeTable.txt"/>
+            <output name="node_attr_table" file="make_bipartite_network/outfiles/NodeAttrTable.txt"/>
+            <output name="otu_node_table" file="make_bipartite_network/outfiles/OTUNodeTable.txt"/>
+            <output name="sample_node_table" file="make_bipartite_network/outfiles/SampleNodeTable.txt"/>
+        </test>
+        <test><!-- test with biom2 input -->
+            <param name="biom_fp" value="make_bipartite_network/otu_table2.biom" />
+            <param name="map_fp" value="make_bipartite_network/mapping_file.txt" />
+            <param name="md_fields" value="kingdom,phylum,class" />
+            <output name="edge_table" file="make_bipartite_network/outfiles/EdgeTable.txt"/>
+            <output name="node_attr_table" file="make_bipartite_network/outfiles/NodeAttrTable.txt"/>
+            <output name="otu_node_table" file="make_bipartite_network/outfiles/OTUNodeTable.txt"/>
+            <output name="sample_node_table" file="make_bipartite_network/outfiles/SampleNodeTable.txt"/>
+        </test>
+    </tests>
+    <help><![CDATA[
+**What it does**
+
+This script was created to ease the process of making bipartite networks that have appeared in high profile publications.
+
+The script will take a biom table and a mapping file and produce an edge table which connects each sample in the biom table
+to the observations found in that sample. It is bipartite because there are two distinct node classes – OTU and Sample.
+The ‘OTU’ node class does not have to be an operational taxonomic unit, it can be a KEGG category or metabolite etc. –
+anything that is an observation. The edges are weighted by the abundance of the observation in the sample to which it
+is connected.
+
+The output files of this script are intended to be loaded into Cytoscape.
+
+More information about this tool is available on `QIIME documentation <http://qiime.org/scripts/make_bipartite_network.html>`_.
+    ]]></help>
+    <citations>
+        <expand macro="citations"/>
+    </citations>
+</tool>
