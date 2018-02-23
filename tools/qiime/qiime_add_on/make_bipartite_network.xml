@@ -73,7 +73,7 @@ The ‘OTU’ node class does not have to be an operational taxonomic unit, it c
 anything that is an observation. The edges are weighted by the abundance of the observation in the sample to which it
 is connected.
 
-The output files of this script are intended to be loaded into Cytoscape.
+The output files of this script are intended to be loaded into `Cytoscape <http://cytoscape.org/>`_.
 
 More information about this tool is available on `QIIME documentation <http://qiime.org/scripts/make_bipartite_network.html>`_.
     ]]></help>
