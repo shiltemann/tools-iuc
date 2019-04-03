@@ -1,0 +1,6 @@
+#Fastq_screen version: 0.9.2.dev	#Aligner: bowtie2	#Reads in subset: 100000
+Genome	#Reads_processed	#Unmapped	%Unmapped	#One_hit_one_genome	%One_hit_one_genome	#Multiple_hits_one_genome	%Multiple_hits_one_genome	#One_hit_multiple_genomes	%One_hit_multiple_genomes	Multiple_hits_multiple_genomes	%Multiple_hits_multiple_genomes
+Human	1000	966	96.60	0	0.00	0	0.00	9	0.90	25	2.50
+Mouse	1000	19	1.90	684	68.40	263	26.30	3	0.30	31	3.10
+
+%Hit_no_genomes: 1.90
