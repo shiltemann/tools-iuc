@@ -1,0 +1,72 @@
+<tool id="fastq_screen" name="FastQ Screen" version="0.13.0">
+    <description>screen a FASTQ file against a range of genomes</description>
+    <requirements>
+        <requirement type="package" version="0.13.0">fastq-screen</requirement>
+        <requirement type="package" version="0.20.0">bismark</requirement>
+    </requirements>
+    <version_command>fastq_screen --version</version_command>
+    <command detect_errors="aggressive"><![CDATA[
+## create bowtie2 index
+#if str($reference_genome.source) == "history":
+    bowtie2-build --threads \${GALAXY_SLOTS:-4} '$reference_genome.own_file' genome &&
+    ln -s -f '$reference_genome.own_file' genome.fa &&
+#end if
+
+## run FastQ screen
+ln -s '${input_fastq}' sample.fastq &&
+fastq_screen --aligner bowtie2 --threads  \${GALAXY_SLOTS:-4} --conf '${fastq_screen_config}' sample.fastq
+
+
+    ]]></command>
+    <configfiles>
+        <configfile name="fastq_screen_config"><![CDATA[
+# This is the configuration file for FastQ Screen
+
+#if str($reference_genome.source) == "history":
+    #set $index_path = './genome'
+#else:
+    #set $index_path = $reference_genome.index.fields.path
+#end if
+
+## Custom - Sequence files from history
+DATABASE	Custom	$index_path
+
+
+        ]]></configfile>
+    </configfiles>
+    <inputs>
+    <param name="input_fastq" type="data" format="fastq" label="FASTQ files to screen"/>
+    <conditional name="reference_genome">
+          <param name="source" type="select" label="Will you select a reference genome from your history or use a built-in index?" help="Built-ins were indexed using default options. See `Indexes` section of help below">
+            <option value="indexed">Use a built-in genome index</option>
+            <option value="history">Use a genome from the history and build index</option>
+          </param>
+          <when value="indexed">
+            <param name="index" type="select" label="Select reference genome" help="If your genome of interest is not listed, contact the Galaxy team">
+              <options from_data_table="bowtie2_indexes">
+                <filter type="sort_by" column="2"/>
+                <validator type="no_options" message="No indexes are available for the selected input dataset"/>
+              </options>
+            </param>
+          </when>
+          <when value="history">
+            <param name="own_file" type="data" format="fasta" label="Select reference genome" />
+          </when>
+    </conditional>
+    </inputs>
+    <outputs>
+        <data name="html_report" format="html" from_work_dir="sample_screen.html" label="${tool.name} on ${on_string}: HTML report"/>
+        <data name="plot" format="png" from_work_dir="sample_screen.png" label="${tool.name} on ${on_string}: plot"/>
+        <data name="table" format="txt" from_work_dir="sample_screen.txt" label="${tool.name} on ${on_string}: results table"/>
+    </outputs>
+    <tests>
+        <test>
+        </test>
+    </tests>
+    <help><![CDATA[
+help text goes here
+    ]]></help>
+    <citations>
+        <citation type="doi">10.12688/f1000research.15931.2</citation>
+    </citations>
+</tool>

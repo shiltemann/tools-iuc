@@ -1,0 +1,12 @@
+name: fastq_screen
+owner: iuc
+description: Screen a FASTQ file against a range of genomes
+long_description: |
+  FastQ Screen allows you to screen a library of sequences in FASTQ format against
+  a set of sequence databases so you can see if the composition of the library
+  matches with what you expect.
+categories:
+  - Sequence Analysis
+homepage_url: http://www.bioinformatics.babraham.ac.uk/projects/fastq_screen/_build/html/index.html
+remote_repository_url: https://github.com/galaxyproject/tools-iuc/tree/master/tools/fastq_screen/
+type: unrestricted
